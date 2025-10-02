@@ -3,7 +3,7 @@ using namespace std;
 
 
 vector<int> prev_ele(vector<int> arr){
-	vector<int> ans(arr.size(),0);
+	vector<int> ans(arr.size(),-1);
 	stack<int> s;
 
 	for(int i=0;i<arr.size();i++){
@@ -11,9 +11,7 @@ vector<int> prev_ele(vector<int> arr){
 		while(!s.empty() && s.top()>=arr[i]){
 		s.pop();
 		}
-		if(s.empty()){
-			ans[i]=-1;
-		}else{
+		if(!s.empty()){
 			ans[i]=s.top();
 		}
 		s.push(arr[i]);
@@ -22,11 +20,7 @@ vector<int> prev_ele(vector<int> arr){
 }
 
 int main(){
-	int n;cin>>n;
-	vector<int> arr(n);
-	for(int i=0;i<n;i++){
-		cin>>arr[i];
-	}
+	vector<int> arr={1,6,2};
 	vector<int> ans = prev_ele(arr);
 	for(int val : ans){
 		cout<<val<<" ";
