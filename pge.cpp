@@ -21,11 +21,7 @@ vector<int> next_ele(vector<int> arr){
 
 
 int main(){
-	int n;cin>>n;
-	vector<int> arr(n);
-	for(int i=0;i<n;i++){
-		cin>>arr[i];
-	}
+	vector<int> arr={1,6,2};
 	vector<int> ans = next_ele(arr);
 	for(int val : ans){
 		cout<<val<<" ";
